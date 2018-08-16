@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.1.0</Version>
+    <PackageId>Nabu</PackageId>
+    <Authors>Rui Carvalho</Authors>
+    <Title>Nabu</Title>
+    <Description>
+      Nabu is a little library that helps you with string and text output, mostly for console apps.
+      You have mainly: 
+       - string extentions to give some common facilites (repeat, center...)
+       - a powerfull text templating system to output content to files, console or even html.
+    </Description>
+    <RepositoryUrl>https://github.com/rhwy/Nabu</RepositoryUrl>
+    <IncludeSource>true</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
