@@ -1,4 +1,4 @@
-using NFluent;
+﻿using NFluent;
 using Xunit;
 using System.Linq;
 using Nabu.TextStyling;

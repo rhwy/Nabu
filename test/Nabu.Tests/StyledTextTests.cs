@@ -2,6 +2,7 @@ using NFluent;
 using Xunit;
 using System.Collections.Generic;
 using System.Linq;
+using Nabu.TextStyling;
 
 namespace Nabu.Tests
 {
