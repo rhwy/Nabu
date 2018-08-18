@@ -78,6 +78,18 @@ namespace Nabu.Tests
             }
 
         }
+
+        public class UseColorPalette
+        {
+            [Fact] public void
+            should_use_color_model()
+            {
+                var color = new Color(80);
+                var sut = color.ToStringList();
+                Check.That(sut).IsEqualTo("80,0,0");
+            }
+
+        }
     }
 }
 
