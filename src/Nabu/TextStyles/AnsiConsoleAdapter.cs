@@ -36,6 +36,7 @@ namespace Nabu.TextStyling
 
         (string start,int stop) getConsoleCodes (string command){
             switch(command){
+                //foreground
                 case "black": return ($"38;2;{Palette.Black.ToStringList(";")}",39);
                 case "red": return ($"38;2;{Palette.Red.ToStringList(";")}",39);
                 case "green": return ($"38;2;{Palette.Green.ToStringList(";")}",39);
@@ -44,9 +45,20 @@ namespace Nabu.TextStyling
                 case "magenta": return ($"38;2;{Palette.Magenta.ToStringList(";")}",39);
                 case "cyan": return ($"38;2;{Palette.Cyan.ToStringList(";")}",39);
                 case "white": return ($"38;2;{Palette.White.ToStringList(";")}",39);
+                //background 
+                case "bgblack": return ($"48;2;{Palette.Black.ToStringList(";")}",49);
+                case "bgred": return ($"48;2;{Palette.Red.ToStringList(";")}",49);
+                case "bggreen": return ($"48;2;{Palette.Green.ToStringList(";")}",49);
+                case "bgorange": case "bgyellow": return ($"48;2;{Palette.Yellow.ToStringList(";")}",49);
+                case "bgblue": return ($"48;2;{Palette.Blue.ToStringList(";")}",49);
+                case "bgmagenta": return ($"48;2;{Palette.Magenta.ToStringList(";")}",49);
+                case "bgcyan": return ($"48;2;{Palette.Cyan.ToStringList(";")}",49);
+                case "bgwhite": return ($"48;2;{Palette.White.ToStringList(";")}",49);
+
+                //effect
                 case "bold": return ("1",22);
                 case "underline": return ("4",24);
-                case "italic": return ("3",23);
+                case "italic": return ("3",0);
                 default: return ("",39);
             }
         }

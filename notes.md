@@ -11,7 +11,7 @@
 ## Ideas
 
 ### Style
-* chainable style?
+* [no] chainable style? -> it complicates things where as builders with templating are simpler to write
 * provide api to create it's own patterns: 
     ex ->    
     `var error = ConsoleStyle.Bold.BgRed.White;`
@@ -23,4 +23,7 @@
 * it has to be able to print to console with style and be able to return
 raw text if we want to print to a file. eventually, we could also want to output 
 to html with style. 
-* implement Background colors too (use escape ansi code rgb : 48;2;r;g;b)
+
+* [ok] implement Background colors too (use escape ansi code rgb : 48;2;r;g;b)
+
+* [next] fix reset with only one "0m" for all styles instead of using one specific for each style

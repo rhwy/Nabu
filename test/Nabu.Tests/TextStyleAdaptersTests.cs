@@ -136,13 +136,21 @@ namespace Nabu.Tests
             }
 
             [Fact] public void
+            can_create_reusable_console_style_generator_verify_background()
+            {
+                var red = ConsoleStyles.Build("#bgwhite#red");
+                string sut = red("hello");
+                Check.That(sut).IsEqualTo("\u001b[38;2;194;54;33;1mhello\u001b[39;49m");
+            }
+            [Fact] public void
             can_create_reusable_console_style_generator_with_palette()
             {
-                var red = ConsoleStyles.Build("#red#bold#underline", new ColorPaletteMonokai());
+                var red = ConsoleStyles.Build("#red#bold#italic", new ColorPaletteMonokai());
                 string sut = red("hello") + " world";
-                Check.That(sut).IsEqualTo("\u001b[38;2;253;66;133;1;4mhello\u001b[39;22;24m world");
+                Check.That(sut).IsEqualTo("\u001b[38;2;253;66;133;1;3mhello\u001b[39;22;0m world");//39;22;23
             }
         }
+
 
         public class UseColorPalette
         {
