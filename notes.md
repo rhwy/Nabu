@@ -23,3 +23,4 @@
 * it has to be able to print to console with style and be able to return
 raw text if we want to print to a file. eventually, we could also want to output 
 to html with style. 
+* implement Background colors too (use escape ansi code rgb : 48;2;r;g;b)

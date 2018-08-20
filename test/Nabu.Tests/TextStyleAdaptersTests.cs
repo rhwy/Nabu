@@ -70,7 +70,7 @@ namespace Nabu.Tests
         {
             [Theory] 
             [InlineData("#green`hello`","\u001b[38;2;37;188;36mhello\u001b[39m")] 
-            [InlineData("#red#bold`hello`","\u001b[38;2;194;54;33;1mhello\u001b[39;21m")] public void 
+            [InlineData("#red#bold`hello`","\u001b[38;2;194;54;33;1mhello\u001b[39;22m")] public void 
             should_get_ansi_string_with_predefined_ansi_adapter(string source, string expectedAnsiCode)
             {
                 var text = TextStyleParser.Print(source, TextStyleAdapters.AnsiConsole);
@@ -79,7 +79,7 @@ namespace Nabu.Tests
 
             [Theory] 
             [InlineData("#green`hello`","\u001b[38;2;37;188;36mhello\u001b[39m")] 
-            [InlineData("#red#bold`hello`","\u001b[38;2;194;54;33;1mhello\u001b[39;21m")] public void 
+            [InlineData("#red#bold`hello`","\u001b[38;2;194;54;33;1mhello\u001b[39;22m")] public void 
             can_generate_printer_for_reuse_with_defaults(string source, string expectedAnsiCode)
             {
                 var printerDefaultConsole = TextStyleGenerator.GeneratePrinter();
@@ -132,15 +132,15 @@ namespace Nabu.Tests
             {
                 var red = ConsoleStyles.Build("#red#bold");
                 string sut = red("hello");
-                Check.That(sut).IsEqualTo("\u001b[38;2;194;54;33;1mhello\u001b[39;21m");
+                Check.That(sut).IsEqualTo("\u001b[38;2;194;54;33;1mhello\u001b[39;22m");
             }
 
             [Fact] public void
             can_create_reusable_console_style_generator_with_palette()
             {
-                var red = ConsoleStyles.Build("#red#bold", new ColorPaletteMonokai());
-                string sut = red("hello");
-                Check.That(sut).IsEqualTo("\u001b[38;2;253;66;133;1mhello\u001b[39;21m");
+                var red = ConsoleStyles.Build("#red#bold#underline", new ColorPaletteMonokai());
+                string sut = red("hello") + " world";
+                Check.That(sut).IsEqualTo("\u001b[38;2;253;66;133;1;4mhello\u001b[39;22;24m world");
             }
         }
 
@@ -158,7 +158,7 @@ namespace Nabu.Tests
 
             [Theory] 
             [InlineData("#green`hello`","\u001b[38;2;166;226;45mhello\u001b[39m")] 
-            [InlineData("#red#bold`hello`","\u001b[38;2;253;66;133;1mhello\u001b[39;21m")] public void 
+            [InlineData("#red#bold`hello`","\u001b[38;2;253;66;133;1mhello\u001b[39;22m")] public void 
             can_use_an_alternate_color_palette_with_console_adapter(string source, string expectedAnsiCode)
             {
                 var customPalette = new ColorPaletteMonokai();

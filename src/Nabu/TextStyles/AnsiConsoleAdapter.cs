@@ -27,7 +27,7 @@ namespace Nabu.TextStyling
                 case "magenta": return (35,39);
                 case "cyan": return (36,39);
                 case "white": return (37,39);
-                case "bold": return (1,21);
+                case "bold": return (1,22);
                 case "underline": return (4,24);
                 case "italic": return (3,23);
                 default: return (-1,39);
@@ -44,7 +44,7 @@ namespace Nabu.TextStyling
                 case "magenta": return ($"38;2;{Palette.Magenta.ToStringList(";")}",39);
                 case "cyan": return ($"38;2;{Palette.Cyan.ToStringList(";")}",39);
                 case "white": return ($"38;2;{Palette.White.ToStringList(";")}",39);
-                case "bold": return ("1",21);
+                case "bold": return ("1",22);
                 case "underline": return ("4",24);
                 case "italic": return ("3",23);
                 default: return ("",39);
