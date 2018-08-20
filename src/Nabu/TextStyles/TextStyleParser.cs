@@ -5,6 +5,15 @@ using Sprache;
 
 namespace Nabu.TextStyling
 {
+    public static class ConsoleStyles
+    {
+        public static Func<string,string> Build(string oneStyle,IColorPalette palette = null)
+        {
+            var adapter = new AnsiConsoleAdapter(palette);
+            var printer = TextStyleGenerator.GeneratePrinter(adapter);
+            return text => printer($"{oneStyle}`{text}`");
+        }
+    }
     public static class TextStyleParser
     {
         public static TextStyles ParseStyles(string styles)

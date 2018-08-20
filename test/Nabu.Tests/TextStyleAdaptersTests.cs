@@ -127,6 +127,21 @@ namespace Nabu.Tests
                 Check.That(text).IsEqualTo(expectedAnsiCode);
             }
 
+            [Fact] public void
+            can_create_reusable_console_style_generator()
+            {
+                var red = ConsoleStyles.Build("#red#bold");
+                string sut = red("hello");
+                Check.That(sut).IsEqualTo("\u001b[38;2;194;54;33;1mhello\u001b[39;21m");
+            }
+
+            [Fact] public void
+            can_create_reusable_console_style_generator_with_palette()
+            {
+                var red = ConsoleStyles.Build("#red#bold", new ColorPaletteMonokai());
+                string sut = red("hello");
+                Check.That(sut).IsEqualTo("\u001b[38;2;253;66;133;1mhello\u001b[39;21m");
+            }
         }
 
         public class UseColorPalette
