@@ -13,8 +13,10 @@ namespace Nabu.TextStyling
         public static Color From(byte red, byte green, byte blue)
         => new Color(red,green,blue); 
 
-        public string ToStringList()
-        => $"{Red},{Green},{Blue}";
+        public string ToStringList(string separator = ",")
+        => $"{Red}{separator}{Green}{separator}{Blue}";
+
+        public override string ToString() => ToStringList();
     }
 
 
