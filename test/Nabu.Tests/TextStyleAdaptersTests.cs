@@ -140,7 +140,7 @@ namespace Nabu.Tests
             {
                 var red = ConsoleStyles.Build("#bgwhite#red");
                 string sut = red("hello");
-                Check.That(sut).IsEqualTo("\u001b[38;2;194;54;33;1mhello\u001b[39;49m");
+                Check.That(sut).IsEqualTo("\u001b[48;2;203;204;205;38;2;194;54;33mhello\u001b[49;39m");
             }
             [Fact] public void
             can_create_reusable_console_style_generator_with_palette()
